@@ -12,6 +12,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'pundit'
 gem 'minitest-rails'
+gem 'seed_dump'
 
 group :development do
   gem 'pry-rails'

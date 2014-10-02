@@ -13,9 +13,16 @@
       %td= page.title
       %td= page.body
       %td= link_to 'Show', page
-      %td= link_to 'Edit', edit_page_path(page)
-      %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - if user_signed_in?
+        %td= link_to 'Edit', edit_page_path(page)
+        %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Page', new_page_path
+- if user_signed_in?
+  = link_to 'New Page', new_page_path
+  |
+  = link_to 'Log out', logout_path
+- else
+  = link_to 'Sign up', login_path
+  |
+  = link_to 'Sign in', signup_path

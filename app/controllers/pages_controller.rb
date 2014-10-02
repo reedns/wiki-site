@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /pages
   def index
@@ -22,7 +23,7 @@ class PagesController < ApplicationController
   # POST /pages
   def create
     @page = Page.new(page_params)
-
+     (@page.users << current_user).uniq!
     if @page.save
       redirect_to @page, notice: 'Page was successfully created.'
     else
@@ -33,6 +34,7 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   def update
     if @page.update(page_params)
+      (@page.users << current_user).uniq!
       redirect_to @page, notice: 'Page was successfully updated.'
     else
       render :edit
