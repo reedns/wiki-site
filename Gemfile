@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'haml-rails'
 gem 'devise'
 gem 'pundit'
+gem 'minitest-rails'
 
 group :development do
   gem 'pry-rails'
@@ -21,7 +22,6 @@ group :development do
 end
 
 group :test do
-  gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem 'launchy'
 end
