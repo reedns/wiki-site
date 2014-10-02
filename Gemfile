@@ -13,6 +13,7 @@ gem 'devise'
 gem 'pundit'
 gem 'minitest-rails'
 gem 'seed_dump'
+gem 'rubocop'
 
 group :development do
   gem 'pry-rails'

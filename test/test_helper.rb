@@ -5,12 +5,11 @@ require 'minitest/rails'
 require 'minitest/pride'
 require 'minitest/rails/capybara'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-
-  # Add more helper methods to be used by all tests here...
-  include Capybara::DSL
+module ActiveSupport
+  class TestCase
+    fixtures :all
+    include Capybara::DSL
+  end
 end
 
 def sign_in(user)

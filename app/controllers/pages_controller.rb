@@ -23,7 +23,7 @@ class PagesController < ApplicationController
   # POST /pages
   def create
     @page = Page.new(page_params)
-     (@page.users << current_user).uniq!
+    (@page.users << current_user).uniq!
     if @page.save
       redirect_to @page, notice: 'Page was successfully created.'
     else
@@ -48,13 +48,14 @@ class PagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def page_params
-      params.require(:page).permit(:title, :body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_page
+    @page = Page.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def page_params
+    params.require(:page).permit(:title, :body)
+  end
 end
