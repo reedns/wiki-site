@@ -1,0 +1,5 @@
+%h1= @user.name
+
+%ul Pages contributed to:
+- @user.pages.each do |page|
+  %li= link_to page.title, page
